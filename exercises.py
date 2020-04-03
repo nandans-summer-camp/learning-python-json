@@ -4,7 +4,7 @@
 # and create a function called "load_tweets".
 # The function should have one parameter:
 # a string which is the relative path of a
-# json file.
+# file in "json lines" format.
 #
 # The function should open that file and
 # parse each line as JSON, returning a
