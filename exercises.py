@@ -28,6 +28,15 @@
 #
 # For example: { 'es': 5, 'ca': 3 }
 
+def get_language_counts(tweets):
+    langs = {}
+    for tweet in tweets:
+        lang = tweet['lang']
+        try:
+            langs[lang] += 1
+        except KeyError:
+            langs[lang] = 1
+    return langs
 
 
 ##################################
@@ -52,6 +61,20 @@
 # representing the number of times that hashtag
 # occured.
 
+def count_occurences(li):
+    counts = {}
+    for el in li:
+        try:
+            counts[el] += 1
+        except KeyError:
+            counts[el] = 1
+    return counts
+
+def get_hashtag_counts(tweets):
+    hashtags = [tag['text'] for t in tweets
+                for tag in t['entities']['hashtags']]
+    counts = count_occurences(hashtags)
+    return counts
 
 #
 # 4)
